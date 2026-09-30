@@ -1,4 +1,41 @@
-# Random graph phase transitions
+# Random graph phase transitions and systemic financial risk
+
+Probability, finite-size scaling and network credit risk. The project extends an Erdős-Rényi study from a 2026 TIPE with critical-window susceptibility and a synthetic interbank payment-clearing model.
+
+![Critical scaling and network risk](results/research/network_risk.png)
+
+## Critical-window and systemic-risk research
+
+The new graph experiment samples **3,000 independent graphs** at `p = 1/n + lambda n^(-4/3)`, across three sizes and five offsets. It reports the largest and second-largest components, susceptibility, cycle surplus and finite-component susceptibility, with Monte Carlo standard errors and distribution quantiles. The original 15,500 graph realizations remain separately reproducible.
+
+The financial experiment constructs **128 networks of 80 banks**, with four expected degrees and weighted symmetric exposures. It solves **6,144 scenarios** across six asset-loss severities. Every bank owes a positive fraction to an outside creditor. Monotone payment iteration from upper and lower bounds is compared, and an L1 contraction bound certifies the numerical solution.
+
+| Check | Full experiment result |
+| --- | ---: |
+| Maximum certified payment error, L1 | 9.98e-11 |
+| Maximum upper/lower solution disagreement, L1 | 1.58e-10 |
+| Maximum clearing iterations | 64 |
+| Unshocked control | All banks solvent in every network |
+
+For expected degree 8 and asset-loss severity 0.20, mean defaults rise from **56.57%** under a direct-only payment calculation to **70.60%** after clearing. The outside creditor's 95% expected shortfall is **18.58%** of its original claims, with a network-cluster bootstrap interval of **[16.46%, 20.62%]**.
+
+The study records derivatives of clearing payments on each active default set, the default subsystem's spectral radius, resolvent amplification, direct losses and additional contagion losses. Bootstrap resampling preserves all shocks on each sampled network. Expected degree also changes debt-size heterogeneity and the fraction of isolated banks in this construction; comparisons do not isolate a causal effect of connectivity.
+
+These are synthetic stress results. They describe proportional payment clearing without bankruptcy costs or fire sales. Zero severity is a deterministic solvency control; positive severities include additive correlated asset-loss dispersion.
+
+## Run the research study
+
+After installing the package as shown below:
+
+```bash
+python -m er_graphs.research
+python -m unittest discover -s tests -v
+python -m er_graphs.research --quick --output /tmp/network-research
+```
+
+[`docs/research.md`](docs/research.md) gives the critical scaling, balance-sheet construction, fixed-point proof, sensitivity formulas and uncertainty design. [`results/research/`](results/research) contains graph realizations, systemic scenarios, tail-risk summaries, sensitivities, figures, protocols and checksums. CI runs mathematical tests and a small complete experiment.
+
+## Original phase-transition experiments
 
 Monte Carlo experiments on how local graph statistics, the giant component and connectivity behave at different probability scales in the Erdős-Rényi model. The project combines the probabilistic arguments from a 2026 TIPE with an expanded, reproducible numerical study.
 
