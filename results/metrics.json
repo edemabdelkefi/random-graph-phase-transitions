@@ -1,0 +1,106 @@
+{
+  "protocol": {
+    "seed": 20260930,
+    "phase": {
+      "n": [
+        250,
+        1000,
+        4000
+      ],
+      "c": [
+        0.4,
+        0.6,
+        0.8,
+        0.9,
+        1.0,
+        1.1,
+        1.2,
+        1.4,
+        1.6,
+        1.8,
+        2.0,
+        2.25,
+        2.5,
+        2.75,
+        3.0
+      ],
+      "replicates": 200
+    },
+    "scaling": {
+      "n": [
+        250,
+        500,
+        1000,
+        2000,
+        4000,
+        8000
+      ],
+      "c": 1.0,
+      "replicates": 250,
+      "bootstrap_replicates": 2000
+    },
+    "connectivity": {
+      "n": 1000,
+      "s": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "replicates": 400
+    },
+    "cycles": {
+      "n": 500,
+      "c": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "replicates": 300,
+      "k": [
+        3,
+        4
+      ]
+    },
+    "reporting": {
+      "giant_component_mae": "all phase-grid c >= 1.4 at n=4000",
+      "scaling_fit": "OLS log(mean largest component) against log(n), all six sizes",
+      "scaling_ci": "within-size nonparametric bootstrap, percentile 95%, 2000 draws",
+      "connectivity_rmse": "all eight s values",
+      "cycle_reference": "exact finite-n expected counts, not just asymptotic counts",
+      "geometry_error": "maximum relative length error at 512 intervals, all 1000 pairs"
+    }
+  },
+  "graphs": {
+    "graph_realizations": 15500,
+    "max_vertices": 8000,
+    "giant_fraction_mae": 0.0008659803326478144,
+    "critical_exponent": 0.6703010759837733,
+    "critical_exponent_ci95": [
+      0.6461292699616832,
+      0.6951122212897154
+    ],
+    "connectivity_rmse": 0.009399203916448764
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "csv_sha256": {
+    "connectivity.csv": "201f33de1f3c3b14d26c472ed8992a1814c6f149f17ce1f9a4852414c27b131c",
+    "cycles.csv": "a619cc5022b689428d710f3e1e8263fe6221180d6b035bf2e054b02e08e31bfb",
+    "cycles_raw.csv": "3fb54323ec3bd3ab69ac8288dc197bef36cae129191ce06df34b684d2ba3df70",
+    "graphs_raw.csv": "6f7cf76d3d8554c9468a8dc539217f5d83d948fb3251c30380fd3051a00b0b84",
+    "phase.csv": "11714e5edc1438ae1078c105bbd7b59e6515f939a820cfdf563c6f1dd495773b",
+    "scaling.csv": "89595b00aad8b2d25ea2058cbc39e2a5835bb5f0c9e1ea221cf24826b27c45a8",
+    "scaling_bootstrap.csv": "4af83d5cdede82b09ac67c38a0ea89d5a7f56505acd487b083f73ddb3ac5f711"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "seed": 20260930,
+  "phase": {
+    "n": [
+      250,
+      1000,
+      4000
+    ],
+    "c": [
+      0.4,
+      0.6,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.4,
+      1.6,
+      1.8,
+      2.0,
+      2.25,
+      2.5,
+      2.75,
+      3.0
+    ],
+    "replicates": 200
+  },
+  "scaling": {
+    "n": [
+      250,
+      500,
+      1000,
+      2000,
+      4000,
+      8000
+    ],
+    "c": 1.0,
+    "replicates": 250,
+    "bootstrap_replicates": 2000
+  },
+  "connectivity": {
+    "n": 1000,
+    "s": [
+      -3.0,
+      -2.0,
+      -1.0,
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "replicates": 400
+  },
+  "cycles": {
+    "n": 500,
+    "c": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "replicates": 300,
+    "k": [
+      3,
+      4
+    ]
+  },
+  "reporting": {
+    "giant_component_mae": "all phase-grid c >= 1.4 at n=4000",
+    "scaling_fit": "OLS log(mean largest component) against log(n), all six sizes",
+    "scaling_ci": "within-size nonparametric bootstrap, percentile 95%, 2000 draws",
+    "connectivity_rmse": "all eight s values",
+    "cycle_reference": "exact finite-n expected counts, not just asymptotic counts",
+    "geometry_error": "maximum relative length error at 512 intervals, all 1000 pairs"
+  }
+}
